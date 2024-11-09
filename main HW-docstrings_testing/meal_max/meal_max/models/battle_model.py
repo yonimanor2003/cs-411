@@ -14,10 +14,12 @@ class BattleModel:
     """
     A model to handle battles between meals, determining winners based on their scores.
     """
+
     def __init__(self):
         """
         Initializes the BattleModel with an empty list of combatants.
         """
+
         self.combatants: List[Meal] = []
 
     def battle(self) -> str:
@@ -30,6 +32,7 @@ class BattleModel:
         Raises:
             ValueError: If fewer than two combatants are available to battle.
         """
+
         logger.info("Two meals enter, one meal leaves!")
 
         if len(self.combatants) < 2:
@@ -88,6 +91,7 @@ class BattleModel:
 
         This method logs the action of clearing the combatants list.
         """
+
         logger.info("Clearing the combatants list.")
         self.combatants.clear()
 
@@ -96,11 +100,12 @@ class BattleModel:
         Calculates the battle score for a given meal combatant.
 
         Args:
-            combatant (Meal): The meal object for which to calculate the score.
+            combatant (Meal): The selected meal object to calculate the score for.
 
         Returns:
             float: The calculated battle score for the combatant.
         """
+
         difficulty_modifier = {"HIGH": 1, "MED": 2, "LOW": 3}
 
         # Log the calculation process
@@ -120,8 +125,9 @@ class BattleModel:
         Retrieves the current list of combatants.
 
         Returns:
-            List[Meal]: A list of Meal objects currently in the combatants list.
+            List[Meal]: A list of Meal objects in the combatants list.
         """
+
         logger.info("Retrieving current list of combatants.")
         return self.combatants
 
