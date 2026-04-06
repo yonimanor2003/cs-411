@@ -127,6 +127,11 @@ def get_leaderboard(sort_by: str="wins") -> dict[str, Any]:
         sqlite3.Error: If any database error occurs.
     """
 
+    query = """
+        SELECT id, meal, cuisine, price, difficulty, battles, wins, (wins * 1.0 / battles) AS win_pct
+        FROM meals WHERE deleted = false AND battles > 0
+    """
+
     if sort_by == "win_pct":
         query += " ORDER BY win_pct DESC"
     elif sort_by == "wins":
